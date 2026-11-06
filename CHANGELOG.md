@@ -4,6 +4,7 @@
 
 - README의 Windows CLI 미리보기 바로 다음에 재현 후보군 10종을 표로 추가했다.
 - 분야와 검토할 업무를 정리하고 프로그램명에 공식 제품 페이지를 연결했다. CONTAM 바로 아래에 Ventus를 배치했다.
+- 재현 후보군의 Fire와 DreamPlus 행에 CRAFT 저장소 열을 추가해 [CRAFT-FIRE](https://github.com/Yfacine/CRAFT-FIRE)와 [CRAFT-DreamPlus](https://github.com/Yfacine/CRAFT-DreamPlus)를 연결했다.
 
 ## v0.2.4.1 · 2026-11-07 (261107)
 
