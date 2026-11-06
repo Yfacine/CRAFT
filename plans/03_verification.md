@@ -21,7 +21,7 @@ CRAFT 자체의 도구, 역할 호출, 인수 규칙 검증을 기록한다. 개
 | --- | --- | --- |
 | 작업공간·팀 | MAIN 지침과 스킬 로딩, SUB 10개 구성, 새 역할 5개 호출과 합성 인계 확인 | [팀 재구성 결과](#331-재구성-검증-결과) |
 | 도구 | REA 6.8.0의 로컬 CLI 및 MCP 서버 직접 시험, Craft Anything과 나머지 레퍼런스 확인 | [도구 최신화 결과](#341-최신화-결과) |
-| Codex 내 REA 호출 | 비대화형 시험에서 호출 승인이 필요함을 확인했고, 해당 실행에서 지정한 도구 세 개로 합성 ZIP의 열기·조사·닫기를 재검증했다. | [공개 ZIP 신규 설치 검증](#36-v021-공개-zip-신규-설치-검증) |
+| v0.2.1 공개 ZIP | 배포 후 GitHub에서 새로 받은 ZIP으로 초기화, 스킬, 대표 SUB 실행, REA 읽기와 v0.2에서 발견한 세 문제의 해소를 확인했다. | [공개본 최종 재검증](#361-배포-후-공개본-최종-재검증) |
 | 인수 규칙 | 후보 없는 사전 검토와 합성 판정 6건 확인 | [운영 절차와 합성 판정](#341-최신화-결과) |
 | 문서 연계 | TF 3역할 독립 검토와 개정본 합성 재대조 | [문서 연계 검증](#35-문서-연계-독립-검토와-재검증) |
 | 실제 제품 인수·범용성 | 개별 제품과 여러 유형의 실제 인수 사례는 미실행 | [검증 범위](#1-검증-범위) |
@@ -135,6 +135,21 @@ REA 근거 ID는 `ev_e90885667eb981ff02870c8721852c73f04251cc126973f59be57ddd299
 - 빈 Codex 프로필에서 신뢰 전에는 프로젝트 REA가 조회되지 않고, 신뢰 후에는 설치 폴더 안의 Node·REA·작업 경로를 조회해야 한다.
 - ZIP의 스킬이 Codex에 표시되고 `craft_rea`가 실행되어 로컬 REA 문서를 읽어야 한다. 역할 10개의 설정과 대표 역할 실제 실행을 구분한다.
 - 비대화형 승인 차단을 보존하고 [REA 예제](references/REA.md#비대화형-codex에서-파일-읽기)로 합성 ZIP의 열기·조사·닫기와 예상 항목을 확인한다. 소스 트리, 최종 ZIP과 체크섬을 비교한다.
+
+#### 3.6.1 배포 후 공개본 최종 재검증
+
+2026-11-06 (한국 시간). **판정은 신규 설치 및 검증 범위 `PASS`다.** [GitHub v0.2.1 Release](https://github.com/Yfacine/CRAFT/releases/tag/v0.2.1)에서 전체 ZIP과 `.sha256`을 새로 내려받아 SHA-256 `45ba6a805546bcebf792a4bdab92ce19b0a42b7864a2ed77d6fb02d4a4addc5c`의 일치를 확인했다. 대상은 Windows x64 배포물이며 태그의 리비전은 `221cec9294d63e572554fec85a03af04fc48c666`이다.
+
+`C:` 드라이브의 새 한글·공백 경로에 압축을 풀었다. Git 초기화와 기존 프로젝트 MCP 설정이 없는 상태에서 [README의 빠른 시작](../README.md#windows-x64-빠른-시작)을 따랐다. PowerShell 7.6.9, Windows PowerShell 5.1.26100.9711, Codex CLI 0.167.0-alpha.3.2를 사용했다. MCP 조회와 스킬 탐색은 빈 Codex 프로필에서, 실제 모델과 SUB 호출은 로그인된 Codex 세션에서 새 프로젝트 경로를 지정해 확인했다.
+
+| v0.2에서 확인한 문제 | 재현 조건과 관찰 | v0.2.1 해결 방법 | 실제 재검증 결과 |
+| --- | --- | --- | --- |
+| Windows PowerShell 5.1 초기화 차단 | 실행 정책 `Restricted`에서 초기화 스크립트를 실행했다. `UnauthorizedAccess`가 발생했고 `.codex/config.toml`은 생성되지 않았다. | PowerShell 7을 기본으로 사용한다. 5.1만 있으면 체크섬을 확인한 뒤 README의 프로세스 범위 대체 명령을 실행한다. | `PASS`. PowerShell 7의 최초·반복 실행과 5.1의 대체 명령이 같은 MCP 설정을 생성했다. |
+| 프로젝트 신뢰 전 REA 조회 실패 | 초기화 후 빈 Codex 프로필에서 신뢰 설정 없이 `codex mcp get rea --json`을 실행했다. `No MCP server named 'rea' found.`가 반환됐다. | 초기화 후 프로젝트를 신뢰하도록 설정하고 새 세션에서 조회한다. | `PASS`. `transport.command`, `transport.args[0]`, `transport.cwd`가 모두 새 설치 폴더를 가리켰다. |
+| 비대화형 REA 호출 승인 차단 | `codex exec`의 승인 정책이 `never`이고 도구별 사전 승인이 없는 상태에서 `open_binary`를 실행했다. `MCP tool call requires approval, but approval policy is never`가 반환됐다. | [REA 비대화형 예제](references/REA.md#비대화형-codex에서-파일-읽기)에 따라 해당 실행에 필요한 세 도구만 지정하고 사전 승인한다. 허용된 파일 조사는 번들 CLI로도 실행할 수 있다. | `PASS`. Codex 안에서 `open_binary` → `inspect_artifact` → `close_binary`를 실행해 합성 ZIP의 `public-v021-proof.txt` 항목을 확인했다. 번들 REA CLI 6.8.0에서도 같은 항목을 확인했다. |
+
+- `craft-replica` 스킬은 Codex의 탐색 목록과 실제 읽기에서 모두 확인했다. SUB 설정 10개를 검사했고 대표 역할 `craft_rea`를 실제 실행했다. 이 SUB는 새 설치 폴더의 `plans/references/REA.md`를 읽고 `비대화형 Codex에서 파일 읽기` 절의 제목을 반환했다. 실행 ID는 `01a1b0f2-288d-7832-8427-09c81d6cbdff`다.
+- 승인 차단과 스킬·SUB 실행 근거는 `skill-sub-and-approval-negative.jsonl`, REA 세 호출의 성공 근거는 `published-guide-rea.jsonl`에 남겼다. REA 조사 근거 ID는 `ev_8a1e80f2f57770ec842c98798034f9cf0ea2ae238a6bf166246257da402d354d`다.
 
 ## 4 후속 검증 기록
 
