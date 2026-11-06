@@ -49,6 +49,16 @@ CRAFT를 다른 경로로 옮겼다면 새 폴더에서 초기화와 프로젝�
 
 실제 대상의 복제 작업을 시작하면 CRAFT의 MAIN이 별도 현황판을 엽니다. 공식 6단계, 전체 팀 상태, 최근 활동·인계와 Gate 판정을 볼 수 있습니다. `T`는 팀 맵, `L`은 역할 목록, `Q`는 현황판 닫기입니다. [실행과 상태 기록](plans/references/Monitor.md)
 
+아래 이미지는 공개 배포본을 Windows 터미널에서 실행한 데모입니다.
+
+### 복제 작업 현황판
+
+![CRAFT CLI의 복제 작업 현황판](docs/images/craft-v0.2.4-cli-workflow.png)
+
+### 팀 맵 (`T`)
+
+![CRAFT CLI의 팀 구조와 인계 화면](docs/images/craft-v0.2.4-cli-team-map.png)
+
 ## 배포와 라이선스
 
 - Release ZIP은 CRAFT 문서·설정 소스·스크립트와 `.tools` 도구 파일을 함께 제공한다. 로컬 설정 `.codex/config.toml`, 실행 상태 `.craft-monitor/`, 내부 Git 관리 정보와 `dist/`는 공개 사본에서 분리한다.
