@@ -7,4 +7,4 @@
 - 분석 SUB 5명은 근거와 명세를 만들고, 제품 코드 작성·수정은 `craft_coder`에 배정한다. 코드 변경에는 `craft_code_review`를 별도로 배정한다. TF 3명은 작업 설계, 구현 정합성, 품질·인수를 검토한다.
 - 기존 `craft_replica` 이름으로 요청해도 MAIN이 `$craft-replica`와 같은 절차로 처리한다. 개별 역할 호출명과 작업 순서는 `plans/01_main-plan.md`에 있다.
 - 원본 도구 사용법은 `plans/references/README.md`에 있다. 대상 프로젝트와 증거는 `targets/<대상-id>/`로 분리하고 다른 프로젝트는 사용자가 지정한 작업 범위를 따른다.
-- CRAFT 자체의 보완 요청과 `yfacine/craft 다운받아줘` 요청은 `plans/01_main-plan.md`의 8절을 따른다. 사용자가 로컬 작업 경로를 지정하면 그 범위를 우선하고, GitHub 반영·Release 발행은 사용자가 요청한 단계에서 진행한다.
+- CRAFT 자체의 보완 요청과 `yfacine/craft 다운받아줘` 요청은 `plans/01_main-plan.md`의 8절을 따른다. 사용자가 저장 경로를 지정하면 그 경로를 우선하고, 경로를 생략한 작업용 다운로드는 Windows 다운로드 폴더 아래 `CRAFT`를 기본으로 사용한다. GitHub 반영·Release 발행은 사용자가 요청한 단계에서 진행한다.
