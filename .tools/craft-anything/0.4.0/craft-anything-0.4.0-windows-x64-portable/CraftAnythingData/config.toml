@@ -1,0 +1,45 @@
+version = 3
+mode = "beginner"
+deep_mode = false
+theme = "studio"
+language = ""
+first_run_done = false
+ask_before_running = true
+auto_mode = true
+runtime_study = false
+recent = []
+project_folders = []
+
+[engines.ghidra]
+
+[engines.tools]
+
+[ai]
+fallback_chain = []
+
+[[ai.backends]]
+enabled = true
+kind = "agent_cli"
+model = "codex"
+name = "Codex"
+
+[ai.prices]
+
+[ai.roles]
+
+[assets]
+budget_usd = 5.0
+
+[plugins]
+mcp = []
+
+[build]
+good_enough = 90.0
+max_rounds = 6
+web_widths = [
+    1440,
+    768,
+    390,
+]
+max_pages = 4
+parallel = 2
