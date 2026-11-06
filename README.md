@@ -4,8 +4,10 @@
 
 | 항목 | 값 |
 | --- | --- |
-| CRAFT 버전 | `v0.2` |
+| CRAFT 버전 | `v0.2.1` |
 | 버전 기준일 | `261106` (2026-11-06, 한국 시간) |
+
+[v0.2.1에서 해결한 문제와 변경 이력](CHANGELOG.md)
 
 ## 문서 순서
 
@@ -20,14 +22,17 @@
 
 ## Windows x64 빠른 시작
 
-CRAFT 전체 ZIP을 원하는 폴더에 풀고 해당 폴더에서 PowerShell을 연다. 배포본에는 여섯 도구가 포함된다. Codex는 사용자가 설치한 환경을 사용한다.
+Windows x64에서 Codex CLI를 설치하고 로그인한다. CRAFT 전체 ZIP에는 REA와 실행용 Node.js를 포함한 도구 6종이 들어 있다.
 
-```powershell
-.\scripts\Initialize-Craft.ps1
-codex mcp get rea --json
-```
+1. GitHub Release의 전체 ZIP과 `.sha256` 파일을 받는다. `Get-FileHash -LiteralPath '<다운로드한 ZIP 경로>' -Algorithm SHA256`으로 구한 해시를 `.sha256`의 첫 값과 대조한 뒤 압축을 푼다.
+2. 압축을 푼 `CRAFT` 폴더에서 **PowerShell 7 (`pwsh`)**을 열고 `.\scripts\Initialize-Craft.ps1`을 실행한다. [초기화 스크립트](scripts/Initialize-Craft.ps1)가 현재 설치 경로를 기준으로 프로젝트의 `.codex/config.toml`을 생성한다.
+3. Codex에서 같은 `CRAFT` 폴더를 열고 신뢰할 수 있는 프로젝트로 설정한다. 기존에 이 폴더를 열어 둔 세션이 있다면 새 세션을 시작한다.
+4. 같은 폴더에서 `codex mcp get rea --json`을 실행한다. `transport.command`, `transport.args[0]`, `transport.cwd`가 모두 압축을 푼 CRAFT 폴더를 가리키는지 확인한다.
+5. Codex 세션에서 `$craft-replica` 스킬을 호출한다. 역할 이름과 인계 순서는 [메인 계획서](plans/01_main-plan.md)에 있다.
 
-[초기화 스크립트](scripts/Initialize-Craft.ps1)는 자신의 위치에서 CRAFT 루트를 찾아 프로젝트의 REA MCP 설정을 생성한다. Codex에서 해당 폴더를 신뢰할 수 있는 프로젝트로 열고 `$craft-replica` 스킬을 사용한다. CRAFT를 다른 폴더로 옮기면 초기화를 다시 실행한다.
+Windows PowerShell 5.1에서 스크립트 실행이 차단되면 PowerShell 7을 사용한다. 5.1만 있는 경우, 체크섬을 확인한 CRAFT 스크립트는 `powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\Initialize-Craft.ps1`로 실행할 수 있다. 이 옵션은 해당 프로세스에만 적용되며 조직 정책이 적용되는 환경에서는 조직 절차를 따른다.
+
+CRAFT를 다른 경로로 옮겼다면 새 폴더에서 초기화와 프로젝트 신뢰 설정을 다시 진행한다. 비대화형 Codex 실행에서 REA 승인 오류가 나면 [REA 호출 승인과 재현 방법](plans/references/REA.md#비대화형-codex에서-파일-읽기)을 확인한다.
 
 ## 배포와 라이선스
 
