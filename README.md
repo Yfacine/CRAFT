@@ -4,7 +4,7 @@
 
 | 항목 | 값 |
 | --- | --- |
-| CRAFT 버전 | `v0.2.4.1` |
+| CRAFT 버전 | `v0.2.4.2` |
 | 버전 기준일 | `261107` (2026-11-07, 한국 시간) |
 
 [CRAFT 변경 이력](CHANGELOG.md)
@@ -27,6 +27,23 @@
     </tr>
   </tbody>
 </table>
+
+## 재현 후보군
+
+CRAFT에서 실무 기능의 재현을 검토하는 소프트웨어 10종입니다. 프로그램명을 클릭하면 공식 제품 페이지로 이동합니다.
+
+| 분야 | 프로그램 | 검토할 업무 |
+|---|---|---|
+| 화재·연기 | [PyroSim](https://www.thunderheadeng.com/pyrosim/) | 3D 화재·연기 모델 작성과 FDS 해석 준비 |
+| 보행·피난 | [Pathfinder](https://www.thunderheadeng.com/pathfinder/) | 보행자 이동·군중 흐름 모델링과 피난 시나리오 비교 |
+| 보행·피난 | [Simulex](https://www.iesve.com/software/virtual-environment/applications/simulex) | 층별 피난 경로 설정과 대피 시간 분석 |
+| 환기·공기질 | [CONTAM](https://www.nist.gov/el/beed/nist-multizone-modeling) | 구역 간 공기 흐름과 오염물 이동 분석 |
+| 환기·제연 | [Ventus](https://www.thunderheadeng.com/ventus/) | 3D 화면에서 구역과 공기 흐름 경로를 모델링하고 ContamX로 풍량과 차압 분석 |
+| 배관 해석 | [PIPENET](https://sunrise-sys.com/) | 배관망 구성과 유량·압력 해석 |
+| CAD 도면 | [AutoCAD](https://www.autodesk.com/products/autocad/overview) | 도면 작성·편집과 반복 작업 |
+| 차량 동선 | [Vehicle Tracking](https://www.autodesk.com/products/vehicle-tracking/overview) | 차량 회전 궤적 작성과 통과 공간 검토 |
+| 소방설비 설계 | [Fire](https://www.dcs.co.kr/products/2) | 소방설비 배치와 배관·배선 도면 작성 |
+| CAD 자동화 | [DreamPlus](https://dreamcad.net/theme/s007/index/company_01.php) | 도면 일괄 처리, 다중 출력, 반복 명령 자동화 |
 
 ## CRAFT 자체를 보완할 때
 
