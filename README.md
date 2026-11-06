@@ -4,8 +4,8 @@
 
 | 항목 | 값 |
 | --- | --- |
-| CRAFT 버전 | `v0.2.4` |
-| 버전 기준일 | `261106` (2026-11-06, 한국 시간) |
+| CRAFT 버전 | `v0.2.4.1` |
+| 버전 기준일 | `261107` (2026-11-07, 한국 시간) |
 
 [CRAFT 변경 이력](CHANGELOG.md)
 
@@ -22,8 +22,8 @@
   </thead>
   <tbody>
     <tr>
-      <td width="50%"><a href="docs/images/craft-v0.2.4-cli-workflow.png"><img src="docs/images/craft-v0.2.4-cli-workflow.png" alt="CRAFT CLI의 복제 작업 현황판" width="100%"></a></td>
-      <td width="50%"><a href="docs/images/craft-v0.2.4-cli-team-map.png"><img src="docs/images/craft-v0.2.4-cli-team-map.png" alt="CRAFT CLI의 팀 구조와 인계 화면" width="100%"></a></td>
+      <td width="50%"><a href="docs/images/craft-cli-workflow.png"><img src="docs/images/craft-cli-workflow.png" alt="CRAFT CLI의 복제 작업 현황판" width="100%"></a></td>
+      <td width="50%"><a href="docs/images/craft-cli-team-map.png"><img src="docs/images/craft-cli-team-map.png" alt="CRAFT CLI의 팀 구조와 인계 화면" width="100%"></a></td>
     </tr>
   </tbody>
 </table>
