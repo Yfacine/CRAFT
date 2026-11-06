@@ -4,7 +4,7 @@
 
 | 항목 | 값 |
 | --- | --- |
-| CRAFT 버전 | `v0.2.3` |
+| CRAFT 버전 | `v0.2.4` |
 | 버전 기준일 | `261106` (2026-11-06, 한국 시간) |
 
 [CRAFT 변경 이력](CHANGELOG.md)
@@ -45,9 +45,13 @@ Windows PowerShell 5.1에서 스크립트 실행이 차단되면 PowerShell 7을
 
 CRAFT를 다른 경로로 옮겼다면 새 폴더에서 초기화와 프로젝트 신뢰 설정을 다시 진행한다. 비대화형 Codex 실행에서 REA 승인 오류가 나면 [REA 호출 승인과 재현 방법](plans/references/REA.md#비대화형-codex에서-파일-읽기)을 확인한다.
 
+## 작업 현황판
+
+실제 대상의 복제 작업을 시작하면 CRAFT의 MAIN이 별도 현황판을 엽니다. 공식 6단계, 전체 팀 상태, 최근 활동·인계와 Gate 판정을 볼 수 있습니다. `T`는 팀 맵, `L`은 역할 목록, `Q`는 현황판 닫기입니다. [실행과 상태 기록](plans/references/Monitor.md)
+
 ## 배포와 라이선스
 
-- Release ZIP은 CRAFT 문서·설정 소스·스크립트와 `.tools` 도구 파일을 함께 제공한다. 로컬에서 생성한 `.codex/config.toml`, 내부 Git 관리 정보와 배포 산출물 폴더 `dist/`는 공개 사본에서 분리한다.
+- Release ZIP은 CRAFT 문서·설정 소스·스크립트와 `.tools` 도구 파일을 함께 제공한다. 로컬 설정 `.codex/config.toml`, 실행 상태 `.craft-monitor/`, 내부 Git 관리 정보와 `dist/`는 공개 사본에서 분리한다.
 - Git에 등록할 공개 사본에도 `.tools` 파일을 포함한다. 내장 도구의 버전·도입일과 공식 출처는 [도구 이력](plans/references/README.md)에 있다.
 - 내장 도구를 새로 넣거나 교체할 때는 원본 `.gitignore` 때문에 배포할 파일이 누락되지 않았는지 확인한다. 필요한 파일만 명시적으로 등록한다.
 - CRAFT 자체 파일은 [Yfacine](https://github.com/Yfacine)의 [MIT 라이선스](LICENSE)를 따른다. 외부 도구에는 [각 라이선스와 고지](THIRD-PARTY-NOTICES.md)가 적용된다.

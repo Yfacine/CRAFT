@@ -7,6 +7,8 @@ description: CRAFT 프로젝트에서 상용 데스크톱·웹·CLI 등 대상 �
 
 [메인 계획서](../../../plans/01_main-plan.md), [Gate](../../../plans/02_gates.md), [대상계획 양식](../../../plans/04_target-plan-template.md), [레퍼런스 목록](../../../plans/references/README.md)을 읽고 기존 대상의 계획·실행 기록에서 이어간다.
 
+실제 대상의 복제 실행을 시작할 때 MAIN은 [현황판 절차](../../../plans/references/Monitor.md)에 따라 별도 CLI를 한 번 열고 반환된 `StatePath`를 보관한다. 단계 전환, SUB 호출·결과, 인계와 Gate 판정이 확인되면 MAIN이 해당 상태를 갱신한다. 대상계획에 기록한 실제 근거를 사용한다. 현황판 연결에 실패하면 이유를 기록하고 대상계획의 작업 흐름을 이어간다.
+
 ## 전문 역할
 
 - MAIN은 [역할 배정](../../../plans/01_main-plan.md#3-역할-배정)과 선행조건에 따라 필요한 SUB를 호출한다. 완전한 신규 대체 범위에는 다섯 레퍼런스를 활용하고, 부분 보완에는 영향받는 분석과 기존에 유효한 근거를 연결한다.
