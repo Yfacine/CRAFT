@@ -4,10 +4,19 @@
 
 | 항목 | 값 |
 | --- | --- |
-| CRAFT 버전 | `v0.2.1` |
+| CRAFT 버전 | `v0.2.2` |
 | 버전 기준일 | `261106` (2026-11-06, 한국 시간) |
 
-[v0.2.1에서 해결한 문제와 변경 이력](CHANGELOG.md)
+[CRAFT 변경 이력](CHANGELOG.md)
+
+## CRAFT 자체를 보완할 때
+
+평소에는 [GitHub 저장소](https://github.com/Yfacine/CRAFT)의 `main`을 최신 작업 기준으로 사용한다. 보완할 일이 생기면 Codex에 다음 두 가지를 요청하면 된다.
+
+1. **“`yfacine/craft` 다운받아줘.”** Codex가 최신 `main`을 임시 폴더에 가져온다.
+2. **“보완 계획서대로 수정하고 검증한 뒤, 버전을 올려 GitHub에 공개해줘.”** Codex가 변경 이력을 기록하고 검증을 통과한 변경을 `main`에 반영한다. 새 Release의 전체 ZIP과 SHA-256 체크섬까지 GitHub에서 확인한 뒤 임시 작업본을 정리한다.
+
+검증이나 업로드가 중단되면 Codex가 작업본을 보존하고 재개할 지점을 알려준다. 설치해서 사용하는 경우 아래 Windows x64 빠른 시작을 따른다. [Codex가 따르는 보완·배포 절차](plans/01_main-plan.md#8-craft-자체-보완과-배포)
 
 ## 문서 순서
 
@@ -38,5 +47,5 @@ CRAFT를 다른 경로로 옮겼다면 새 폴더에서 초기화와 프로젝�
 
 - Release ZIP은 CRAFT 문서·설정 소스·스크립트와 `.tools` 도구 파일을 함께 제공한다. 로컬에서 생성한 `.codex/config.toml`, 내부 Git 관리 정보와 배포 산출물 폴더 `dist/`는 공개 사본에서 분리한다.
 - Git에 등록할 공개 사본에도 `.tools` 파일을 포함한다. 내장 도구의 버전·도입일과 공식 출처는 [도구 이력](plans/references/README.md)에 있다.
-- 공개 사본에서 `git add -- .` 실행 후 `git add -f -- .tools`를 실행한다. 내장 도구의 원본 `.gitignore`가 자체 배포 파일 일부를 숨길 수 있으므로 `.tools`까지 명시적으로 등록한다.
+- 내장 도구를 새로 넣거나 교체할 때는 원본 `.gitignore` 때문에 배포할 파일이 누락되지 않았는지 확인한다. 필요한 파일만 명시적으로 등록한다.
 - CRAFT 자체 파일은 [Yfacine](https://github.com/Yfacine)의 [MIT 라이선스](LICENSE)를 따른다. 외부 도구에는 [각 라이선스와 고지](THIRD-PARTY-NOTICES.md)가 적용된다.
