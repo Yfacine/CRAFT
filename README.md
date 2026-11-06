@@ -9,6 +9,25 @@
 
 [CRAFT 변경 이력](CHANGELOG.md)
 
+## Windows CLI 미리보기
+
+공개 배포본을 Windows 터미널에서 실행한 데모입니다. 이미지를 누르면 원본 크기로 볼 수 있습니다.
+
+<table>
+  <thead>
+    <tr>
+      <th width="50%">복제 작업 현황판</th>
+      <th width="50%">팀 맵 (T)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td width="50%"><a href="docs/images/craft-v0.2.4-cli-workflow.png"><img src="docs/images/craft-v0.2.4-cli-workflow.png" alt="CRAFT CLI의 복제 작업 현황판" width="100%"></a></td>
+      <td width="50%"><a href="docs/images/craft-v0.2.4-cli-team-map.png"><img src="docs/images/craft-v0.2.4-cli-team-map.png" alt="CRAFT CLI의 팀 구조와 인계 화면" width="100%"></a></td>
+    </tr>
+  </tbody>
+</table>
+
 ## CRAFT 자체를 보완할 때
 
 평소에는 [GitHub 저장소](https://github.com/Yfacine/CRAFT)의 `main`을 최신 작업 기준으로 사용한다. 보완할 일이 생기면 Codex에 다음 두 가지를 요청하면 된다.
@@ -48,16 +67,6 @@ CRAFT를 다른 경로로 옮겼다면 새 폴더에서 초기화와 프로젝�
 ## 작업 현황판
 
 실제 대상의 복제 작업을 시작하면 CRAFT의 MAIN이 별도 현황판을 엽니다. 공식 6단계, 전체 팀 상태, 최근 활동·인계와 Gate 판정을 볼 수 있습니다. `T`는 팀 맵, `L`은 역할 목록, `Q`는 현황판 닫기입니다. [실행과 상태 기록](plans/references/Monitor.md)
-
-아래 이미지는 공개 배포본을 Windows 터미널에서 실행한 데모입니다.
-
-### 복제 작업 현황판
-
-![CRAFT CLI의 복제 작업 현황판](docs/images/craft-v0.2.4-cli-workflow.png)
-
-### 팀 맵 (`T`)
-
-![CRAFT CLI의 팀 구조와 인계 화면](docs/images/craft-v0.2.4-cli-team-map.png)
 
 ## 배포와 라이선스
 
